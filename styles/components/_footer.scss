@@ -1,0 +1,32 @@
+$footer-font-size: 0.8rem;
+$footer-font-color: white;
+
+footer {
+    color: $footer-font-color;
+    padding: 1rem 0rem;
+    font-size: $footer-font-size;
+    background-color: #999;
+    text-align: center;
+}
+
+.footer__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding-left: 0px;
+
+    li a {
+        margin: 0rem 2rem;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: $footer-font-size;
+        color: $footer-font-color;
+    }
+}
+
+.footer__contact {
+    text-align: center;
+}

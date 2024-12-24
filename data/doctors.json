@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "name": "Gregory House",
+        "imageSource": "images/medico_02.jpg",
+        "specialty": "Cardiología",
+        "experience": "Gran experiencia como cardiólogo, especialista en cirugías",
+        "yearsOfExperience": 12,
+        "rate": {
+            "cost": 20000,
+            "currency": "CLP"
+        },
+        "contact" : {
+            "phone": "+569 6325 4432",
+            "email": "gregoryhouse@hospitalsanitario.com"
+        }
+    },
+    {
+        "id": 2,
+        "name": "John Jackson",
+        "imageSource": "images/medico_01.jpg",
+        "specialty": "Medicina General",
+        "experience": "Vasta experiencia como médico general, más de 10 años trabajando para nuestro hospital",
+        "yearsOfExperience": 10,
+        "rate": {
+            "cost": 25000,
+            "currency": "CLP"
+        },
+        "contact" : {
+            "phone": "+569 2432 5432",
+            "email": "jackjohnson@hospitalsanitario.com"
+        }
+    },
+    {
+        "id": 3,
+        "name": "Maura Pérez",
+        "imageSource": "images/medico_04.webp",
+        "specialty": "Otorrinolaringología",
+        "experience": "Experta en trastornos auditivos",
+        "yearsOfExperience": 5,
+        "rate": {
+            "cost": 20000,
+            "currency": "CLP"
+        },
+        "contact" : {
+            "phone": "+569 6464 8758",
+            "email": "mauraperez@hospitalsanitario.com"
+        }
+    },
+    {
+        "id": 4,
+        "name": "Paula Vega",
+        "imageSource": "images/medico_03.jpg",
+        "specialty": "Homeopatía",
+        "experience": "Especialista en homeopatía y tratamientos alternativos",
+        "yearsOfExperience": 8,
+        "rate": {
+            "cost": 15000,
+            "currency": "CLP"
+        },
+        "contact" : {
+            "phone": "+569 2732 1266",
+            "email": "paulavega@hospitalsanitario.com"
+        }
+    }
+]

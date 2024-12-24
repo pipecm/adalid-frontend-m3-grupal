@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital San Itario</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header>  
+        <a href="index.html">
+            <img class="header__logo" src="images/hospital_logo.png" alt="Hospital San Itario" title="Hospital San Itario">
+        </a>
+        <nav>
+            <a class="nav__link" href="index.html">Inicio</a>
+            <a class="nav__link" href="staff.html">Equipo médico</a>
+            <a class="nav__link" href="contact.html">Contacto</a>
+            <button class="btn btn-primary nav__button">Reservar cita</button>
+            <button class="btn btn-primary nav__button" onclick="register()">Registro</button>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="welcome">
+            <h1 class="welcome__title">Bienvenido al Hospital San Itario</h1>
+            <p class="welcome__tfs">En este centro asistencial usted puede atenderse las 24 horas del día, los 365 días del año, los 7 días de la semana.</p>
+            <div class="values">
+                <div class="values__card card text-bg-primary mb-3">
+                    <div class="card-body">
+                      <h5 class="card-title">Misión</h5>
+                      <p class="card-text">Nuestra misión es proporcionar a los pacientes una atención rápida y eficiente, poniendo su salud y su bienestar como máxima prioridad.</p>
+                    </div>
+                </div>
+                <div class="values__card card text-bg-success mb-3">
+                    <div class="card-body">
+                      <h5 class="card-title">Visión</h5>
+                      <p class="card-text">Nuestra visión es ser reconocido como uno de los centros médicos de mayor prestigio de la ciudad y del país.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="services">
+            <h2>Servicios</h2>
+            <div id="services-grid" class="services-list"></div>
+        </section>
+        <section id="testimonials">
+            <h2>Testimonios</h2>
+            <p class="testimonials__quote">"En en hospital me atendieron de forma rápida y eficiente, doy gracias a todo el equipo humano que siempre estuvo al servicio de los pacientes."</p>
+            <p class="testimonials__author">Fulano Detal</p>
+        </section>
+    </main>
+
+    <footer>
+        <ul class="footer__links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="staff.html">Equipo</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+            <li><a href="https://www.facebook.com/hospital">Facebook</a></li>
+            <li><a href="https://www.twitter.com/hospital">Twitter</a></li>
+            <li><a href="https://api.whatsapp.com/56912345678">WhatsApp</a></li>
+        </ul>
+        <div class="contact">
+            <p>Av. Doctor Dencil 1869</p>
+            <p>Mesa Central:  +569 1234 5678</p>
+        </div>
+        <p>© 2024 Hospital San Itario. Todos los derechos reservados</p>
+    </footer>
+    <script type="module" src="scripts/app.js"></script>
+</body>
+</html>

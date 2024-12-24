@@ -1,0 +1,34 @@
+@use "mixins";
+
+.services-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.service {
+    @include mixins.grid-item(24rem, 16rem);
+
+    &__img {
+        width: 12rem;
+        height: 12rem;
+    }
+    
+    &__department {
+        font-weight: bold;
+    }
+}
+
+@media (max-width: 768px) {
+    .services__list {
+        width: 768px;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .services__list {
+        width: 480px;
+        flex-direction: column;
+    }
+}

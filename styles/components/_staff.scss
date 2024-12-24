@@ -1,0 +1,46 @@
+@use "mixins";
+
+.staff-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.doctor {
+    @include mixins.grid-item(23rem, 14rem);
+
+    &__photo {
+        width: 12rem;
+        height: 12rem;
+    }
+
+    &__name {
+        font-weight: bold;
+    }
+
+    &__specialty {
+        font-size: 0.75rem;
+        font-style: italic;
+        background-color: dodgerblue;
+        border-radius: 0.5rem;
+        color: white;
+    }
+
+    &__experience {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .staff-list {
+        width: 768px;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .staff-list {
+        width: 480px;
+        flex-direction: column;
+    }
+}
