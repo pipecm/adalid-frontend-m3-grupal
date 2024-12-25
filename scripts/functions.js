@@ -1,3 +1,29 @@
+import { Doctor } from './classes.js'
+
+export const getServiceItem = (serviceItem) => {
+    let service = document.createElement('div');
+    service.setAttribute('class', 'service');
+
+    let serviceImage = document.createElement('img');
+    serviceImage.setAttribute('class', 'service__img');
+    serviceImage.setAttribute('src', serviceItem.imageSource);
+    serviceImage.setAttribute('alt', serviceItem.name);
+    serviceImage.setAttribute('title', serviceItem.name);
+
+    let serviceTitle = document.createElement('p');
+    serviceTitle.setAttribute('class', 'service__department');
+    serviceTitle.innerHTML = serviceItem.name;
+
+    let serviceCaption = document.createElement('p');
+    serviceCaption.innerHTML = serviceItem.description;
+
+    service.appendChild(serviceImage);
+    service.appendChild(serviceTitle);
+    service.appendChild(serviceCaption);
+
+    return service;
+};
+
 export const getDoctorItem = (doctorItem) => {
     let doctor = document.createElement('div');
     doctor.setAttribute('class', 'doctor');
@@ -61,13 +87,15 @@ export const sortDoctorsByYearsOfExperience = (doctorsList) => {
     return doctorsList;
 };
 
+/* Función que crea la grilla de citas médicas */
+
 export const createAppointmentsGrid = (appointments) => {
     let table = document.createElement('table');
     table.setAttribute('class', 'table');
     let header = document.createElement('thead');
     header.setAttribute('class', 'thead-light');
     let headerTr = document.createElement('tr');
-    ['ID', 'Paciente', 'Email', 'Especialidad', 'Hora'].forEach(columnTitle => {
+    ['ID', 'Paciente', 'Email', 'Especialidad', 'Fecha'].forEach(columnTitle => {
         let headerTh = document.createElement('th');
         headerTh.setAttribute('scope', 'col');
         headerTh.innerHTML = columnTitle;
@@ -86,6 +114,73 @@ export const createAppointmentsGrid = (appointments) => {
                 bodyTd.setAttribute('scope', 'row');
                 hasScope = true;
             }
+            bodyTd.innerHTML = columnData;
+            bodyTr.appendChild(bodyTd);
+        });
+        body.appendChild(bodyTr);
+    });
+    table.appendChild(body);
+
+    return table;
+};
+
+/* Programación funcional: Composición de funciones */
+
+export const getFinalPrice = (rate, hasDiscount, discountPct) => {
+    const priceWithVAT = (rate) => rate * 1.19;
+    const priceWithDiscount = (rate, discountPct) => rate * (1 - (discountPct/100)); 
+
+    return hasDiscount ? priceWithVAT(priceWithDiscount(rate, discountPct)) : priceWithVAT(rate);
+};
+
+/* Uso de programación asíncrona utilizando async/await y promesas para la simulación de un registro de citas. */
+
+export const getPastAppointments = async () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            let response = fetch('data/appointments.json');
+            if (response) {
+                resolve(response);
+            } else {
+                reject("Error al obtener la información");
+            }
+        }, 3000);
+    });
+};
+
+/* Función que crea la grilla de deudas de pacientes */
+
+export const createDebtsGrid = (appointments, doctors) => {
+    let table = document.createElement('table');
+    table.setAttribute('class', 'table');
+    let header = document.createElement('thead');
+    header.setAttribute('class', 'thead-light');
+    let headerTr = document.createElement('tr');
+    ['Paciente', 'Deuda (CLP)'].forEach(columnTitle => {
+        let headerTh = document.createElement('th');
+        headerTh.setAttribute('scope', 'col');
+        headerTh.innerHTML = columnTitle;
+        headerTr.appendChild(headerTh);
+    });
+    header.appendChild(headerTr);
+    table.appendChild(header);
+
+    let patients = Array.from(new Set(appointments.map(appt => appt.name)));
+    let costPerPatient = patients.map(patient => {
+        let patientAppts = appointments.filter(appt => appt.name == patient);
+        let hasDiscount = patientAppts.length >= 3;
+        let cost = patientAppts.reduce((total, appt) => {
+            let whatDoctorAttended = Doctor.of(doctors.filter(dr => dr.id === appt.doctorId)[0]);
+            return total + whatDoctorAttended.getAppointmentCost(hasDiscount);
+        }, 0);
+        return { patient: patient, totalCost: cost };
+    });
+
+    let body = document.createElement('tbody');
+    costPerPatient.forEach(patient => {
+        let bodyTr = document.createElement('tr');
+        [patient.patient, patient.totalCost].forEach(columnData => {
+            let bodyTd = document.createElement('td');
             bodyTd.innerHTML = columnData;
             bodyTr.appendChild(bodyTd);
         });

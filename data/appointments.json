@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "date": "2024-12-02",
+        "name": "Juanito",
+        "email": "juanito@hotmail.com",
+        "doctorId": 1,
+        "specialty": "Cardiología"
+    },
+    {
+        "id": 2,
+        "date": "2024-12-02",
+        "name": "Pedrito",
+        "email": "pedrito@xmail.com",
+        "doctorId": 4,
+        "specialty": "Homeopatía"
+    },
+    {
+        "id": 3,
+        "date": "2024-12-03",
+        "name": "Gabriela",
+        "email": "gabriela@ymail.com",
+        "doctorId": 2,
+        "specialty": "Medicina general"
+    },
+    {
+        "id": 4,
+        "date": "2024-12-03",
+        "name": "Juanito",
+        "email": "juanito@hotmail.com",
+        "doctorId": 1,
+        "specialty": "Cardiología"
+    },
+    {
+        "id": 5,
+        "date": "2024-12-04",
+        "name": "Juanito",
+        "email": "juanito@hotmail.com",
+        "doctorId": 1,
+        "specialty": "Cardiología"
+    },
+    {
+        "id": 6,
+        "date": "2024-12-04",
+        "name": "Juanito",
+        "email": "juanito@hotmail.com",
+        "doctorId": 1,
+        "specialty": "Cardiología"
+    },
+    {
+        "id": 7,
+        "date": "2024-12-05",
+        "name": "Gabriela",
+        "email": "gabriela@ymail.com",
+        "doctorId": 2,
+        "specialty": "Cardiología"
+    }
+]
